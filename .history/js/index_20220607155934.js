@@ -2,8 +2,6 @@
 
 function updateSubtotal(products) {
   debugger;
-  let totalELement = document.querySelector('#total-value span');
-  let totalValue = 0;
   for (const iterator of products) {
     let priceElement = iterator.querySelector('.price span');
 
@@ -17,10 +15,22 @@ function updateSubtotal(products) {
     let subtotalElement = iterator.querySelector('.subtotal span');
 
     subtotalElement.innerText = subtotal;
-    totalValue = totalValue + subtotal;
-    totalELement.innerText = totalValue;
   }
-  return totalValue;
+  return subtotalElement.innerText;
+  /* let priceElement = product.querySelector('.price span');
+
+  let price = Number(priceElement.innerText);
+
+  let quantityElement = product.querySelector('.quantity input');
+
+  let quantity = Number(quantityElement.value);
+
+  let subtotal = price * quantity;
+  let subtotalElement = product.querySelector('.subtotal span');
+
+  subtotalElement.innerText = subtotal;
+  return subtotalElement.innerText; */
+  //... your code goes here
 }
 function calculateAll() {
   // code in the following two lines is added just for testing purposes.
@@ -41,10 +51,7 @@ function calculateAll() {
 
 function removeProduct(event) {
   const target = event.currentTarget;
-  console.log('The target in remove is:', event);
-  let removedElem = target.parentNode.parentNode;
-  let removed = removedElem.parentNode.removeChild(removedElem);
-
+  console.log('The target in remove is:', target);
   //... your code goes here
 }
 
@@ -57,12 +64,6 @@ function createProduct() {
 window.addEventListener('load', () => {
   const calculatePricesBtn = document.getElementById('calculate');
   calculatePricesBtn.addEventListener('click', calculateAll);
-  const removeProductsBtn = document.getElementsByClassName('btn-remove');
 
-  for (const iterator of removeProductsBtn) {
-    iterator.addEventListener('click', removeProduct);
-  }
-  const createProductBtn = document.getElementById('create');
-  createProductBtn.addEventListener('click', createProduct);
   //... your code goes here
 });

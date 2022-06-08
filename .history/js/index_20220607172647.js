@@ -62,7 +62,6 @@ window.addEventListener('load', () => {
   for (const iterator of removeProductsBtn) {
     iterator.addEventListener('click', removeProduct);
   }
-  const createProductBtn = document.getElementById('create');
-  createProductBtn.addEventListener('click', createProduct);
+
   //... your code goes here
 });
